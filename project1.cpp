@@ -42,16 +42,14 @@ int main()
 		readString("Enter item: ", item, 25);
 
 		// asks for price of item
-		cout << "You entered: " << item << endl;
-		cout << "Cost: ";
-		cin >> cost;
+		cout << "You entered: " << item;
+		cost = readInt("Cost: ");
 
 		// updates total to cost of ALL items
-		total = total + cost;
+		total += cost;
 	
 		// displays total
-		cout << "You entered: " << item << endl;
-		cout << " $" << cost << endl;
+		cout << "You entered: " << item << " $" << cost << endl;
 		cout << "Total: $" << total << endl;
 
 		// loops until user enters y or n
@@ -72,12 +70,14 @@ int main()
 				// exits both loops
 				check = false;
 			}
-			else
+            else if (iterate != 'n' && iterate != 'y')
 			{
 				// displays error message and continues loop
 				cout << "ERROR: please enter y or n" << endl;
 			}						
 		}
+        // resets error check
+        check = true;
 	}
 
 	// prints total cost of list
